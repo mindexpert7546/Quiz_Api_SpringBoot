@@ -34,6 +34,7 @@ public class QuizController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(question);
 	}
 	
+	//api to getch the question based on subject and topic 
 	@GetMapping("/fetchQuestions")
 	public ResponseEntity<List<Question>> generate(@RequestParam("subject") String subject,
 	                                               @RequestParam("topic") String topic) {
@@ -49,6 +50,7 @@ public class QuizController {
 	    return ResponseEntity.status(HttpStatus.OK).body(questions);
 	}
 	
+	//api to get all question present in database 
 	@GetMapping("/allQuestions")
 	public ResponseEntity<List<Question>> getAllQuestion(){
 		List<Question> questionList = new ArrayList<>();
@@ -57,6 +59,8 @@ public class QuizController {
 		
 	}
 	
+	
+	//to check the answer 
 	@PostMapping("/answers")
 	public ResponseEntity<Score> evaluate(@RequestBody List<Answer> answers) {
 		int rights = 0;

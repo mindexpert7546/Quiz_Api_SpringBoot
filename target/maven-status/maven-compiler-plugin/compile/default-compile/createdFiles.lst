@@ -1,0 +1,7 @@
+com\kundan\quiz\domain\Question.class
+com\kundan\quiz\controller\QuizController.class
+com\kundan\quiz\repo\QuestionNumber.class
+com\kundan\quiz\domain\Answer.class
+com\kundan\quiz\domain\Score.class
+com\kundan\quiz\QuizAppApplication.class
+com\kundan\quiz\repo\QuizRepo.class
