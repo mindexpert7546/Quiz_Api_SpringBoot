@@ -1,11 +1,11 @@
 spring:
   datasource:
-    password: password
-    url: jdbc:mysql://localhost:3306/springquizapp
+    password: tIjodGiLTBlUwOjRJwdXYdRZDQHeJweA
+    url: jdbc:mysql://viaduct.proxy.rlwy.net:37162/railway
     username: root
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
