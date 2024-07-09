@@ -1,5 +1,6 @@
 package com.kundan.quiz.controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,12 +43,19 @@ public class QuizController {
 	    Collections.shuffle(ids);
 
 	    // Ensure the sublist doesn't exceed the size of ids
-	    List<Integer> subListIds = ids.size() > 10 ? ids.subList(0, 10) : ids;
+//	    List<Integer> subListIds = ids.size() > 0? ids.subList(0, 10) : ids;
 
-	    List<Question> questions = repo.findByQidIn(subListIds);
+	    List<Question> questions = repo.findByQidIn(ids);
 	    return ResponseEntity.status(HttpStatus.OK).body(questions);
 	}
-
+	
+	@GetMapping("/allQuestions")
+	public ResponseEntity<List<Question>> getAllQuestion(){
+		List<Question> questionList = new ArrayList<>();
+		repo.findAll().forEach(question -> questionList.add(question));
+		return ResponseEntity.status(HttpStatus.OK).body(questionList);
+		
+	}
 	
 	@PostMapping("/answers")
 	public ResponseEntity<Score> evaluate(@RequestBody List<Answer> answers) {
